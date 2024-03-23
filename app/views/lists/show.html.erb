@@ -1,0 +1,10 @@
+<h1>List : "<%= @list.name %>"</h1>
+
+<ul>
+<% @list.movies.each do |movie| %>
+  <% bookmark =  Bookmark.where(movie: movie, list: list) %>
+  <li><%= movie.name %> : <%= bookmark.comment %></li>
+<% end %>
+</ul>
+
+<%= link_to "Add a movie to the list", new_list_bookmark_path(list_id:params[:id]) %>

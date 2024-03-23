@@ -30,8 +30,8 @@ response['results'].each do |result|
   movie = Movie.create!(
     title: result['title'],
     overview: result['overview'],
-    poster_url: result['poster_url'],
-    rating: result['rating']
+    poster_url: "https://image.tmdb.org/t/p/original#{result['poster_path']}",
+    rating: result['vote_average']
   )
 
   puts "'#{movie.title}' created"

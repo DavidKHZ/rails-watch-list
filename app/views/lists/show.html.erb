@@ -2,9 +2,40 @@
 
 <ul>
 <% @list.movies.each do |movie| %>
-  <% bookmark =  Bookmark.where(movie: movie, list: list) %>
-  <li><%= movie.name %> : <%= bookmark.comment %></li>
+  <% bookmark =  Bookmark.where(movie: movie, list: @list).first %>
+  <li><%= movie.title %> :
+  <br><%= bookmark.comment %>
+  </li>
+
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Remove the movie from the list
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Are you sure you want to remove <%= movie.title %> from the list ?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Don't remove it</button>
+        <%= button_to "Remove from the list",
+                      bookmark_path(bookmark),
+                      method: :delete,
+                      class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</div>
+
 <% end %>
 </ul>
 
 <%= link_to "Add a movie to the list", new_list_bookmark_path(list_id:params[:id]) %>
+<%= link_to "Back to lists", lists_path %>

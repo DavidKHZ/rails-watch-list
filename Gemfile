@@ -75,3 +75,4 @@ gem "simple_form"
 gem "sassc-rails"
 gem 'json'
 gem 'open-uri'
+gem "cloudinary"

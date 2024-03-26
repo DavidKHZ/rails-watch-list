@@ -20,7 +20,7 @@ puts 'Pulling top rated movies from the web'
 
 url = 'https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=1'
 headers = {
-  'Authorization' => 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzMGU3Y2E3MTU1ZDNlY2RmMDIyOTIyZDg3NGQ3YTAxMyIsInN1YiI6IjY1ZmUzMzQ0MWIxZjNjMDE2Mzk3NDRmNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.n0kOIj5Xl8kwK8LIn1QqOoP_YsDanxb62VR1lr6CnYE',
+  'Authorization' => "Bearer #{ENV['MOVIE_DB_API_KEY']}",
   'Accept' => 'application/json'
 }
 

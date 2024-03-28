@@ -1,19 +1,10 @@
-<h1>All lists</h1>
+<h1>All your movies' lists</h1>
 
-<ul>
+
+<div class="cards">
+
 <% @lists.each do |list| %>
-  <li><%= link_to list.name, list %></li>
+  <%= render "list_card", list: list %>
 <% end %>
-</ul>
 
-<%= link_to 'Create a new list', new_list_path %>
-
-<div class="container">
-<!-- app/views/articles/index.html.erb -->
-<%= cl_image_tag("utihvhzelwnib41ulxhc",
-      width: 400, height: 300, crop: :fill) %>
-
-<!-- for face detection -->
-<%= cl_image_tag("s78ew6kosuomzxaex65p",
-      width: 150, height: 150, crop: :thumb, gravity: :face) %>
 </div>

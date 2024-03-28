@@ -76,3 +76,4 @@ gem "sassc-rails"
 gem 'json'
 gem 'open-uri'
 gem "cloudinary"
+gem 'active_storage_validations'

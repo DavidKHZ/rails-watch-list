@@ -1,0 +1,14 @@
+<div class="card-movie">
+  <img src="<%= movie.poster_url %>" />
+  <div class="card-movie-infos">
+    <div class="flex-grow">
+      <h2><%= movie.title %></h2>
+      <p><%= movie.overview %></p>
+      <h2>Movie comment</h2>
+      <p><%= bookmark.comment %></p>
+    <div class="d-flex flex-row-reverse">
+      <%= render "button-remove-movie", movie: movie, bookmark: bookmark %>
+    </div>
+    </div>
+  </div>
+</div>
